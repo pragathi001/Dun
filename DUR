@@ -15,6 +15,7 @@ public class Monster {
 
 	        char arr[][] = new char[rows][columns];
 
+	        // Input the array elements
 	        System.out.println("Enter the array elements:");
 	        for (int i = 0; i < rows; i++) {
 	            for (int j = 0; j < columns; j++) {
@@ -26,7 +27,7 @@ public class Monster {
 	        int gRow = -1, gColumn = -1;
 	        int mRow = -1, mColumn = -1;
 
-	       
+	        // Display the input array
 	        System.out.println("Given array:");
 	        for (int i = 0; i < arr.length; i++) {
 	            for (int j = 0; j < arr[i].length; j++) {
@@ -57,15 +58,15 @@ public class Monster {
 	            System.out.println("Steps from A to G: " + stepsAG);
 	            System.out.println("Steps from M to G: " + stepsMG);
 
-	            if (stepsMG < stepsAG) {
-	                System.out.println("No possible ");
-	            }
+	            if (stepsMG == stepsAG) {
+	                System.out.println("Minimum number of step:"+stepsMG);
+	        }else if(stepsMG < stepsAG || stepsAG < stepsMG) {
+	        	System.out.println("No minimum number of step");
 	        } else {
 	            System.out.println("A or G not found in the array.");
 	        }
 
 	     
 	    }
-	}
-
-	          
+	    }
+}
