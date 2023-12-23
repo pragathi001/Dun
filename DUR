@@ -2,10 +2,8 @@ package durgeon;
 
 import java.util.Scanner;
 
-
-	import java.util.Scanner;
-
-	public class Dungeon {
+public class Monster {
+	
 	    public static void main(String[] args) {
 	        Scanner scanner = new Scanner(System.in);
 
@@ -17,7 +15,6 @@ import java.util.Scanner;
 
 	        char arr[][] = new char[rows][columns];
 
-	       
 	        System.out.println("Enter the array elements:");
 	        for (int i = 0; i < rows; i++) {
 	            for (int j = 0; j < columns; j++) {
@@ -27,8 +24,9 @@ import java.util.Scanner;
 
 	        int aRow = -1, aColumn = -1;
 	        int gRow = -1, gColumn = -1;
+	        int mRow = -1, mColumn = -1;
 
-	      
+	       
 	        System.out.println("Given array:");
 	        for (int i = 0; i < arr.length; i++) {
 	            for (int j = 0; j < arr[i].length; j++) {
@@ -45,17 +43,29 @@ import java.util.Scanner;
 	                } else if (arr[i][j] == 'G') {
 	                    gRow = i;
 	                    gColumn = j;
+	                } else if (arr[i][j] == 'M') {
+	                    mRow = i;
+	                    mColumn = j;
 	                }
 	            }
 	        }
 
-	        if (aRow != -1 && aColumn != -1 && gRow != -1 && gColumn != -1) {
-	            int steps = Math.abs(aRow - gRow) + Math.abs(aColumn - gColumn);
-	            System.out.println("Steps from A to G: " + steps);
+	        if (aRow != -1 && aColumn != -1 && gRow != -1 && gColumn != -1 && mRow != -1 && mColumn != -1) {
+	            int stepsAG = Math.abs(aRow - gRow) + Math.abs(aColumn - gColumn);
+	            int stepsMG = Math.abs(mRow - gRow) + Math.abs(mColumn - gColumn);
+
+	            System.out.println("Steps from A to G: " + stepsAG);
+	            System.out.println("Steps from M to G: " + stepsMG);
+
+	            if (stepsMG < stepsAG) {
+	                System.out.println("No possible ");
+	            }
 	        } else {
 	            System.out.println("A or G not found in the array.");
 	        }
 
-	       
+	     
 	    }
 	}
+
+	          
